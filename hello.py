@@ -25,7 +25,7 @@ def fetch_coordinates(apikey, address):
 
 
 def load_coffee_shops(file_path):
-    with open(file_path, "r") as my_file:
+    with open(file_path, "r", encoding="cp1251") as my_file:
         return json.loads(my_file.read())
 
 
@@ -63,8 +63,6 @@ def create_map(coord_place_one, closest_coffee_shops, place_one):
 
 
 def main():
-    global apikey
-
     load_dotenv()
     apikey = os.getenv("YANDEX_API_KEY")
 
